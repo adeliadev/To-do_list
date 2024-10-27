@@ -28,7 +28,7 @@ public class TaskController {
         return searchedTask.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/add-task")
+    @PostMapping
     public ResponseEntity<Task> createTask(@RequestBody Task task) {
         Task newTask = taskRepository.save(task);
         return ResponseEntity.status(HttpStatus.CREATED).body(newTask);
